@@ -38,13 +38,13 @@ jobs:
         run: ../toolsDev/jb inspectcode ./TrainProject.sln -o=./reports/report
       
       - name: validate report
-        run: sudo ./scripts/validate_report.sh
+        run: ./scripts/validate_report.sh
 
       - name: run tests
         run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=cobertura -p:CoverletOutput=../reports/coverage 
 
       - name: validate coverage
-        run: sudo ./scripts/validate_coverage.sh
+        run: ./scripts/validate_coverage.sh
 
       - name: generate coverage html
         run: ../toolsDev/reportgenerator -reports:./reports/coverage.cobertura.xml -targetdir:.\reports\coveragereport -reporttypes:Html
