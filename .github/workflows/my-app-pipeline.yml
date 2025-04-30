@@ -47,6 +47,9 @@ jobs:
       - name: run tests
         run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=cobertura -p:CoverletOutput=../reports/coverage 
 
+      - name: enable coverage
+        run: chmod +x ./scripts/validate_coverage.sh
+
       - name: validate coverage
         run: ./scripts/validate_coverage.sh
 
