@@ -40,4 +40,4 @@ jobs:
       - run: pwd
 
       - name: run tests
-        run: cd myApp.Tests | dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=cobertura -p:CoverletOutput=reports/coverage 
+        run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=cobertura -p:CoverletOutput=reports/coverage 
