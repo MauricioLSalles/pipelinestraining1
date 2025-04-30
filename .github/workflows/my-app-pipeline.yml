@@ -35,4 +35,4 @@ jobs:
         run: ../toolsDev/jb inspectcode ./TrainProject.sln -o=./reports/report
 
       - name: Test
-        run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=cobertura -p:CoverletOutput=reports/coverage
+        run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=cobertura -p:CoverletOutput=./reports/coverage
