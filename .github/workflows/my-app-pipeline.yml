@@ -26,6 +26,9 @@ jobs:
       - name: load dependencies
         run: dotnet restore
 
+      - name: build
+        run: dotnet build
+
       - name: load ReSharper
         run: dotnet tool install JetBrains.ReSharper.GlobalTools --tool-path ../toolsDev
       - name: load report generator
