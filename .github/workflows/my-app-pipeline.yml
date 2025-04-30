@@ -38,6 +38,9 @@ jobs:
       - name: generate report
         run: ../toolsDev/jb inspectcode ./TrainProject.sln -o=./reports/report
       
+      - name: enable report
+        run: chmod +x ./scripts/validate_report.sh
+      
       - name: validate report
         run: ./scripts/validate_report.sh
 
