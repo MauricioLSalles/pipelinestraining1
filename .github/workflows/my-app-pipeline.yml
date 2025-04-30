@@ -34,5 +34,7 @@ jobs:
       - name: generate report
         run: ../toolsDev/jb inspectcode ./TrainProject.sln -o=./reports/report
 
+      - run: pwd
+
       - name: run tests
-        run: cd .\myApp.Tests\ | dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=cobertura -p:CoverletOutput=reports/coverage 
+        run: cd myApp.Tests | dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=cobertura -p:CoverletOutput=reports/coverage 
