@@ -40,4 +40,7 @@ jobs:
       - run: pwd
 
       - name: run tests
-        run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=cobertura -p:CoverletOutput=reports/coverage 
+        run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=cobertura -p:CoverletOutput=../reports/coverage 
+
+      - name: see reports
+        run: ../toolsDev/reportgenerator.exe -reports:./reports/coverage.cobertura.xml -targetdir:.\reports\coveragereport -reporttypes:Html
