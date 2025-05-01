@@ -57,5 +57,5 @@ jobs:
         run: ../toolsDev/reportgenerator -reports:./reports/coverage.cobertura.xml -targetdir:.\reports\coveragereport -reporttypes:Html
 
       - name: publish
-        run: dotnet publish .\myApp\myApp.csproj
+        run: dotnet publish ./myApp/myApp.csproj
 
