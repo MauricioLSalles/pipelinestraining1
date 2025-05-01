@@ -60,5 +60,5 @@ jobs:
         run: dotnet publish ./myApp/myApp.csproj
       
       - name: run
-        run: ./myApp/bin/Release/netcoreapp8/myApp.exe 
+        run: ./myApp/bin/Release/netcoreapp8/myApp
 
