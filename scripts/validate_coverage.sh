@@ -12,7 +12,7 @@ RATE=$( awk 'NR==2' $COVERAGE_REPORT_PATH | grep -Pio $RATE_REGEX | sed -n '1p')
 
 # Represents 100% of coverage
 MAX_COVERAGE="1"
-
+echo $RATE
 if [ "$RATE" = "$MAX_COVERAGE" ];
 then
     echo "Pass Successful"
@@ -20,11 +20,11 @@ then
 fi
 
 # Represents 80% of coverage
-MIN_COVERAGE="0.8"
+#MIN_COVERAGE="0.8"
+MIN_COVERAGE="8"
+COVERAGE_VALUE=$( echo $RATE | tr "." "\n" | sed -n '2p' | cut -c1-1 )
 
-#COVERAGE_VALUE=$( echo $RATE | tr "." "\n" | sed -n '2p' | cut -c1-1 )
-
-echo $COVERAGE_VALUE
+echo $RATE
 
 if [ "$COVERAGE_VALUE" -ge "$MIN_COVERAGE" ];
 then
