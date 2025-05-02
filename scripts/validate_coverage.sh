@@ -4,13 +4,13 @@ echo "Check Coverage"
 
 COVERAGE_REPORT_PATH="./reports/coverage.cobertura.xml"
 
+
 RATE_REGEX='[0-1]\d*(\.\d+)?'
 
 RATE=$( awk 'NR==2' $COVERAGE_REPORT_PATH | grep -Pio $RATE_REGEX | sed -n '1p')
 
 # Represents 100% of coverage
 MAX_COVERAGE="1"
-
 if [ "$RATE" = "$MAX_COVERAGE" ];
 then
     echo "Pass Successful"
@@ -18,9 +18,12 @@ then
 fi
 
 # Represents 80% of coverage
-MIN_COVERAGE="0.8"
+#MIN_COVERAGE="0.8"
+MIN_COVERAGE="80"
+#COVERAGE_VALUE=$( echo $RATE | tr "." "\n" | sed -n '2p' | cut -c1-1 )
+COVERAGE_VALUE=$( echo $RATE | tr "." "\n" | sed -n '2p' | cut -c1-2 )
 
-COVERAGE_VALUE=$( echo $RATE | tr "." "\n" | sed -n '2p' | cut -c1-1 )
+echo $COVERAGE_VALUE
 
 if [ "$COVERAGE_VALUE" -ge "$MIN_COVERAGE" ];
 then
