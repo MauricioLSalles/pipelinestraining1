@@ -4,7 +4,6 @@ echo "Check Coverage"
 
 COVERAGE_REPORT_PATH="./reports/coverage.cobertura.xml"
 
-echo "Script executed from: ${PWD}"
 
 RATE_REGEX='[0-1]\d*(\.\d+)?'
 
@@ -12,7 +11,6 @@ RATE=$( awk 'NR==2' $COVERAGE_REPORT_PATH | grep -Pio $RATE_REGEX | sed -n '1p')
 
 # Represents 100% of coverage
 MAX_COVERAGE="1"
-echo $RATE
 if [ "$RATE" = "$MAX_COVERAGE" ];
 then
     echo "Pass Successful"
