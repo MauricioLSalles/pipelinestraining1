@@ -17,5 +17,14 @@ namespace myApp.Tests
             Program.Main();
            
         }
+
+        public void helloError()
+        {
+            
+            Program program = new Program("name");
+            
+        }
+
+
     }
 }

@@ -15,6 +15,11 @@ namespace myApp
             this.say_bye();
         }
 
+        public Program(string name){
+            this.say_hello(name);
+            this.say_bye(name);
+        }
+
         private void say_hello()
         {
             try{
