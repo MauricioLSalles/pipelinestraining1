@@ -18,7 +18,7 @@ then
 fi
 
 # Represents 80% of coverage
-MIN_COVERAGE="0.8"
+MIN_COVERAGE=0.8
 
 COVERAGE_VALUE=$( echo $RATE | tr "." "\n" | sed -n '2p' | cut -c1-1 )
 
