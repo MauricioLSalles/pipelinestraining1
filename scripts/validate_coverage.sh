@@ -21,13 +21,13 @@ fi
 
 # Represents 80% of coverage
 #MIN_COVERAGE="0.8"
-MIN_COVERAGE="8"
+MIN_COVERAGE="80"
+#COVERAGE_VALUE=$( echo $RATE | tr "." "\n" | sed -n '2p' | cut -c1-1 )
 COVERAGE_VALUE=$( echo $RATE | tr "." "\n" | sed -n '2p' | cut -c1-2 )
 
 echo $COVERAGE_VALUE
 
 if [ "$COVERAGE_VALUE" -ge "$MIN_COVERAGE" ];
-#if [ "$RATE" -ge "$MIN_COVERAGE" ];
 then
     echo "Pass Successful"
     exit 0
