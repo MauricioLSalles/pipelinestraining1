@@ -24,6 +24,8 @@ MIN_COVERAGE="0.8"
 
 COVERAGE_VALUE=$( echo $RATE | tr "." "\n" | sed -n '2p' | cut -c1-1 )
 
+echo COVERAGE_VALUE
+
 if [ "$COVERAGE_VALUE" -ge "$MIN_COVERAGE" ];
 then
     echo "Pass Successful"
