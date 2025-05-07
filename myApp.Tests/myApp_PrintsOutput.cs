@@ -18,12 +18,6 @@ namespace myApp.Tests
            
         }
 
-        public void helloError()
-        {
-            
-            Program program = new Program("name");
-            
-        }
 
 
     }
