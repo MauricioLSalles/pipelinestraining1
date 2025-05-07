@@ -36,20 +36,25 @@ jobs:
         run: dotnet tool install dotnet-reportgenerator-globaltool --tool-path ../toolsDev
 
       - name: generate report
-        run: ../toolsDev/jb.exe inspectcode ./TrainProject.sln -o=report
+        run: ../toolsDev/jb inspectcode ./TrainProject.sln -o=./reports/report
+      
+      - name: enable report
+        run: chmod +x ./scripts/validate_report.sh
       
       - name: validate report
-        run: ./scripts/validate_report.ps1
+        run: ./scripts/validate_report.sh
 
       - name: run tests
-        run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=cobertura -p:CoverletOutput="../reports/coverage"
+        run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=cobertura -p:CoverletOutput=../reports/coverage 
 
+      - name: enable coverage
+        run: chmod +x ./scripts/validate_coverage.sh
 
       - name: validate coverage
-        run: ./scripts/validate_coverage.ps1
+        run: ./scripts/validate_coverage.sh
 
       - name: generate coverage html
-        run: ../toolsDev/reportgenerator.exe -reports:"./reports/coverage.cobertura.xml" -targetdir:.\reports\coveragereport -reporttypes:Html
+        run: ../toolsDev/reportgenerator -reports:./reports/coverage.cobertura.xml -targetdir:.\reports\coveragereport -reporttypes:Html
 
       - name: publish
         run: dotnet publish ./myApp/myApp.csproj
