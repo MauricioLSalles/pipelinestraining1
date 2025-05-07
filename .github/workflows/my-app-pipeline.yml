@@ -36,7 +36,7 @@ jobs:
         run: dotnet tool install dotnet-reportgenerator-globaltool --tool-path ../toolsDev
 
       - name: generate report
-        run: ../toolsDev/jb inspectcode ./TrainProject.sln -o=./reports/report
+        run: ../toolsDev/jb.exe inspectcode ./TrainProject.sln -o=./reports/report
       
       - name: validate report
         run: ./scripts/validate_report.ps1
@@ -49,7 +49,7 @@ jobs:
         run: ./scripts/validate_coverage.ps1
 
       - name: generate coverage html
-        run: ../toolsDev/reportgenerator -reports:./reports/coverage.cobertura.xml -targetdir:.\reports\coveragereport -reporttypes:Html
+        run: ../toolsDev/reportgenerator.exe -reports:./reports/coverage.cobertura.xml -targetdir:.\reports\coveragereport -reporttypes:Html
 
       - name: publish
         run: dotnet publish ./myApp/myApp.csproj
