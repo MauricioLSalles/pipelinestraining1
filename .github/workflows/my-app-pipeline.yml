@@ -60,5 +60,5 @@ jobs:
         run: dotnet publish ./myApp/myApp.csproj
       
       - name: build dockerfile
-        run: docker build -t myApp .
+        run: docker build -t my_app .
 
