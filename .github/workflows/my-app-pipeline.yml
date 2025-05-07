@@ -26,9 +26,6 @@ jobs:
       - name: load dependencies
         run: dotnet restore
 
-      - name: test docker
-        run: docker -v
-
       - name: build
         run: dotnet build
 
