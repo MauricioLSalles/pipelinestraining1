@@ -62,6 +62,6 @@ jobs:
       - name: publish
         run: dotnet publish ./myApp/myApp.csproj
       
-      - name: run
-        run: ./myApp/bin/Release/netcoreapp8/publish/myApp
+      - name: build dockerfile
+        run: docker build -t myApp .
 
