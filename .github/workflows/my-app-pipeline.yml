@@ -36,7 +36,7 @@ jobs:
       #  run: dotnet tool install dotnet-reportgenerator-globaltool --tool-path ../toolsDev
 
       - name: generate report
-        run: ../toolsDev/jb inspectcode ./TrainProject.sln -o=./reports/report
+        run: jb inspectcode ./TrainProject.sln -o=./reports/report
       
       - name: enable report
         run: chmod +x ./scripts/validate_report.sh
