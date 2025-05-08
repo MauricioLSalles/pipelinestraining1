@@ -29,14 +29,14 @@ jobs:
       - name: build
         run: dotnet build
 
-      - name: load ReSharper
-        run: dotnet tool install JetBrains.ReSharper.GlobalTools --tool-path ../toolsDev
-        
-      - name: load report generator
-        run: dotnet tool install dotnet-reportgenerator-globaltool --tool-path ../toolsDev
+      #- name: load ReSharper
+      #  run: dotnet tool install JetBrains.ReSharper.GlobalTools --tool-path ../toolsDev
+      #  
+      #- name: load report generator
+      #  run: dotnet tool install dotnet-reportgenerator-globaltool --tool-path ../toolsDev
 
       - name: generate report
-        run: ../toolsDev/jb inspectcode ./TrainProject.sln -o=./reports/report
+        run: /toolsDev/jb inspectcode ./TrainProject.sln -o=./reports/report
       
       - name: enable report
         run: chmod +x ./scripts/validate_report.sh
@@ -54,13 +54,19 @@ jobs:
         run: ./scripts/validate_coverage.sh
 
       - name: generate coverage html
-        run: ../toolsDev/reportgenerator -reports:./reports/coverage.cobertura.xml -targetdir:.\reports\coveragereport -reporttypes:Html
+        run: /toolsDev/reportgenerator -reports:./reports/coverage.cobertura.xml -targetdir:.\reports\coveragereport -reporttypes:Html
 
       - name: publish
         run: dotnet publish ./myApp/myApp.csproj
       
       - name: build dockerfile
         run: docker build -t my_app .
+
+      - name: tag image
+        run: docker tag my_app mauriciolsalles/my_app:latest
+
+      - name: push
+        run: docker tag my_app mauriciolsalles/my_app:latest
 
       - name: run container 
         run: docker run --rm my_app
