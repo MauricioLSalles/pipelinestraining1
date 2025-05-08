@@ -32,8 +32,8 @@ jobs:
       #- name: load ReSharper
       #  run: dotnet tool install JetBrains.ReSharper.GlobalTools --tool-path ../toolsDev
         
-      - name: load report generator
-        run: dotnet tool install dotnet-reportgenerator-globaltool --tool-path ../toolsDev
+      #- name: load report generator
+      #  run: dotnet tool install dotnet-reportgenerator-globaltool --tool-path ../toolsDev
 
       - name: generate report
         run: ../toolsDev/jb inspectcode ./TrainProject.sln -o=./reports/report
