@@ -4,4 +4,4 @@ WORKDIR /app
 
 COPY ./myApp/bin/Release/netcoreapp8/publish /app
 
-CMD ["./myApp.exe"]
+CMD ["./myApp"]
