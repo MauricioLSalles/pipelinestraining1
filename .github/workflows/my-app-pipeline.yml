@@ -63,5 +63,5 @@ jobs:
         run: docker build -t my_app .
 
       - name: run container 
-        run: docker run --rem my_app
+        run: docker run --rm my_app 
 
